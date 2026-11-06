@@ -1,6 +1,8 @@
 {
-  "name": "travis-fahey-chapter-16",
+  "name": "travis-fahey-chapter-17",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react-native-safe-area-context": "~5.11.1"
+  }
 }
