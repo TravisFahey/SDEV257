@@ -1,26 +1,42 @@
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, Button, FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './styles';
 
-export default function Catalog({ title, introduction, items }) {
+export default function Catalog({ title, introduction, items, loading, error, onRetry }) {
   return (
     <SafeAreaView style={styles.container} edges={['left', 'right', 'bottom']}>
-      <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.heading} accessibilityRole="header">{title}</Text>
-        <Text style={styles.introduction}>{introduction}</Text>
-        {items.map((item) => (
-          <View key={item.name} style={styles.card}>
+      <FlatList
+        contentContainerStyle={styles.content}
+        data={items}
+        keyExtractor={(item) => item.uid}
+        ListHeaderComponent={
+          <View>
+            <Text style={styles.heading} accessibilityRole="header">{title}</Text>
+            <Text style={styles.introduction}>{introduction}</Text>
+          </View>
+        }
+        ListEmptyComponent={
+          loading ? <ActivityIndicator accessibilityLabel={`Loading ${title.toLowerCase()}`} /> :
+          error ? (
+            <View>
+              <Text style={styles.description} accessibilityRole="alert">{error}</Text>
+              <Button title="Try again" onPress={onRetry} />
+            </View>
+          ) : <Text style={styles.description}>No items found.</Text>
+        }
+        renderItem={({ item }) => (
+          <View style={styles.card}>
             <Text style={styles.cardTitle} accessibilityRole="header">{item.name}</Text>
-            <View style={styles.facts}>
+            {item.facts && <View style={styles.facts}>
               {item.facts.map((fact) => (
                 <Text key={fact} style={styles.fact}>{fact}</Text>
               ))}
-            </View>
-            <Text style={styles.description}>{item.description}</Text>
+            </View>}
+            {item.description && <Text style={styles.description}>{item.description}</Text>}
           </View>
-        ))}
-      </ScrollView>
+        )}
+      />
     </SafeAreaView>
   );
 }
