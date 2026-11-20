@@ -13,6 +13,46 @@ export default StyleSheet.create({
     flexGrow: 1,
     padding: 20,
   },
+  textInputContainer: {
+    padding: 20,
+    paddingBottom: 0,
+  },
+  textInputLabel: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: 'lightsteelblue',
+    backgroundColor: 'white',
+    padding: 10,
+    fontSize: 16,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  },
+  modalInner: {
+    backgroundColor: 'azure',
+    padding: 20,
+    borderWidth: 1,
+    borderColor: 'lightsteelblue',
+    borderRadius: 2,
+    alignItems: 'center',
+  },
+  modalText: {
+    fontSize: 16,
+    margin: 5,
+    color: 'slategrey',
+  },
+  modalButton: {
+    fontWeight: 'bold',
+    margin: 5,
+    color: 'slategrey',
+  },
   heading: {
     fontSize: 28,
     fontWeight: 'bold',
