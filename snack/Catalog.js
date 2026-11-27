@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, Button, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Animated, { SlideInLeft } from 'react-native-reanimated';
 import Search from './Search';
 import ConfirmationModal from './ConfirmationModal';
 import Swipeable from './Swipeable';
@@ -39,7 +40,7 @@ export default function Catalog({ title, introduction, items, loading, error, on
         )}
         {items.map((item) => (
           <Swipeable key={item.uid} onSwipe={onSwipe(item)}>
-            <View style={styles.card}>
+            <Animated.View entering={SlideInLeft} style={styles.card}>
               <Text style={styles.cardTitle} accessibilityRole="header">{item.name}</Text>
               {item.facts && <View style={styles.facts}>
                 {item.facts.map((fact) => (
@@ -47,7 +48,7 @@ export default function Catalog({ title, introduction, items, loading, error, on
                 ))}
               </View>}
               {item.description && <Text style={styles.description}>{item.description}</Text>}
-            </View>
+            </Animated.View>
           </Swipeable>
         ))}
       </ScrollView>
