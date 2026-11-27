@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Catalog from './Catalog';
 
+const imageSource = {
+  uri: 'https://lumiere-a.akamaihd.net/v1/images/tatooine-main_9542b896.jpeg?region=165%2C0%2C949%2C534',
+};
+
 export default function Planets() {
   const [planets, setPlanets] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +42,8 @@ export default function Planets() {
   return (
     <Catalog
       title="Planets"
+      imageSource={imageSource}
+      imageLabel="Tatooine's desert landscape"
       introduction="Explore worlds from across the Star Wars galaxy, provided by SWAPI."
       items={planets}
       loading={loading}

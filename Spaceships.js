@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Catalog from './Catalog';
 
+const imageSource = {
+  uri: 'https://lumiere-a.akamaihd.net/v1/images/millennium-falcon-main-tlj-a_7cf89d3a.jpeg?region=0%2C0%2C1280%2C720',
+};
+
 export default function Spaceships() {
   const [spaceships, setSpaceships] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +42,8 @@ export default function Spaceships() {
   return (
     <Catalog
       title="Spaceships"
+      imageSource={imageSource}
+      imageLabel="Millennium Falcon traveling through hyperspace"
       introduction="Discover ships from Rebel starfighters to Imperial warships, provided by SWAPI."
       items={spaceships}
       loading={loading}

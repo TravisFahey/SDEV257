@@ -5,9 +5,10 @@ import Animated, { SlideInLeft } from 'react-native-reanimated';
 import Search from './Search';
 import ConfirmationModal from './ConfirmationModal';
 import Swipeable from './Swipeable';
+import LazyImage from './LazyImage';
 import styles from './styles';
 
-export default function Catalog({ title, introduction, items, loading, error, onRetry }) {
+export default function Catalog({ title, introduction, imageSource, imageLabel, items, loading, error, onRetry }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
   function onSwipe(item) {
@@ -22,6 +23,12 @@ export default function Catalog({ title, introduction, items, loading, error, on
 
   return (
     <SafeAreaView style={styles.container} edges={['left', 'right', 'bottom']}>
+      <LazyImage
+        style={styles.image}
+        source={imageSource}
+        resizeMode="contain"
+        accessibilityLabel={imageLabel}
+      />
       <Search />
       <ScrollView
         style={styles.scroll}

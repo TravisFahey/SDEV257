@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Catalog from './Catalog';
 
+const imageSource = {
+  uri: 'https://lumiere-a.akamaihd.net/v1/images/Star-Wars-New-Hope-IV-Poster_c217085b.jpeg?region=43%2C231%2C583%2C328',
+};
+
 export default function Films() {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,6 +48,8 @@ export default function Films() {
   return (
     <Catalog
       title="Films"
+      imageSource={imageSource}
+      imageLabel="Star Wars: A New Hope poster artwork"
       introduction="Browse the films available from SWAPI in episode order. Opening crawls contain spoilers."
       items={films}
       loading={loading}

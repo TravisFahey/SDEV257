@@ -13,6 +13,20 @@ export default StyleSheet.create({
     flexGrow: 1,
     padding: 20,
   },
+  image: {
+    width: 240,
+    height: 135,
+    marginTop: 20,
+    alignSelf: 'center',
+    backgroundColor: '#1C2630',
+  },
+  imageContent: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
   scroll: {
     flex: 1,
     alignSelf: 'stretch',
