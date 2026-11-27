@@ -17,7 +17,6 @@ export default function Films() {
         const response = await fetch('https://www.swapi.tech/api/films');
         if (!response.ok) throw new Error('Unable to fetch films.');
         const data = await response.json();
-        // Films use result and properties rather than the planets/starships results format.
         const items = data.result.map((film) => ({
           uid: film.uid,
           name: film.properties.title,

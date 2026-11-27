@@ -1,6 +1,3 @@
-// Short summaries adapted from the official Star Wars Databank and film pages.
-// https://www.starwars.com/databank and https://www.starwars.com/films
-// Each source below identifies the entry used for that item.
 export const planets = [
   {
     name: 'Tatooine',
@@ -79,7 +76,6 @@ export const spaceships = [
   },
 ];
 
-// The Skywalker saga is listed in episode order, rather than release order.
 export const films = [
   {
     name: 'The Phantom Menace',

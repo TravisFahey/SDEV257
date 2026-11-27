@@ -16,7 +16,6 @@ export default function Planets() {
       try {
         let url = 'https://www.swapi.tech/api/planets';
         let items = [];
-        // Follow the API's next link to include every page of planets.
         while (url) {
           const response = await fetch(url);
           if (!response.ok) throw new Error('Unable to fetch planets.');

@@ -16,7 +16,6 @@ export default function Spaceships() {
       try {
         let url = 'https://www.swapi.tech/api/starships';
         let items = [];
-        // Follow the API's next link to include every page of starships.
         while (url) {
           const response = await fetch(url);
           if (!response.ok) throw new Error('Unable to fetch spaceships.');
