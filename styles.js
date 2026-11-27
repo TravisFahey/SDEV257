@@ -13,6 +13,14 @@ export default StyleSheet.create({
     flexGrow: 1,
     padding: 20,
   },
+  scroll: {
+    flex: 1,
+    alignSelf: 'stretch',
+  },
+  swipeContainer: {
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+  },
   textInputContainer: {
     padding: 20,
     paddingBottom: 0,
@@ -36,12 +44,19 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
   modalInner: {
+    maxWidth: '90%',
+    maxHeight: '80%',
     backgroundColor: 'azure',
     padding: 20,
     borderWidth: 1,
     borderColor: 'lightsteelblue',
     borderRadius: 2,
     alignItems: 'center',
+  },
+  modalScroll: {
+    flexGrow: 0,
+    flexShrink: 1,
+    alignSelf: 'stretch',
   },
   modalText: {
     fontSize: 16,
